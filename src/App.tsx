@@ -1,5 +1,5 @@
 import music from '@/assets/audio/music.mp3';
-import overlayImage from '@/assets/images/bali27-min.JPG?w=300;600;1200&format=webp&imagetools';
+import overlayImage from '@/assets/images/GUS04673.JPG?w=300;600;1200&format=webp&imagetools';
 import BottomNav from '@/components/BottomNav';
 import { BalineseText, Heading1 } from '@/components/Text';
 import Footer from '@/layout/Footer/FooterSection.tsx';

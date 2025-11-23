@@ -1,5 +1,5 @@
-import imgBride from '@/assets/images/bali6-min.JPG?w=300;600;1200&format=webp&imagetools';
-import imgGroom from '@/assets/images/bali8-min.JPG?w=300;600;1200&format=webp&imagetools';
+import imgBride from '@/assets/images/GUS04401.JPG?w=300;600;1200&format=webp&imagetools';
+import imgGroom from '@/assets/images/GUS04596.JPG?w=300;600;1200&format=webp&imagetools';
 import { Heading1, Heading2 } from '@/components/Text';
 import { BrideAndGroom } from '@/types/data.ts';
 import styled from '@emotion/styled';
