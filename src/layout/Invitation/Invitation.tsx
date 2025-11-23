@@ -11,8 +11,12 @@ const Invitation = () => {
     <InvitationWrapper>
       {/* <CountdownEvent /> */}
       <Paragraph>{parsedData.greeting.message_invitation}</Paragraph>
-      <Caption textAlign={'center'}>{parsedData.greeting.eventDetail}</Caption>
-      <CountdownEvent />
+      <Caption textAlign={'center'} data-aos="fade-down">
+        {parsedData.greeting.eventDetail}
+      </Caption>
+      <div data-aos="fade-down">
+        <CountdownEvent />
+      </div>
       {/* <Map />
       <MapButtons /> */}
       <Paragraph>{parsedData.greeting.message_regards}</Paragraph>

@@ -1,28 +1,55 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiHeart, FiHome, FiImage, FiMapPin, FiMessageCircle } from 'react-icons/fi';
 
 const items = [
-    { href: '#home', label: 'Home', icon: <FiHome /> },
-    { href: '#wedding', label: 'Wedding', icon: <FiHeart /> },
-    { href: '#location', label: 'Lokasi', icon: <FiMapPin /> },
-    { href: '#gallery', label: 'Gallery', icon: <FiImage /> },
-    { href: '#guestbook', label: 'Guestbook', icon: <FiMessageCircle /> },
+  { href: '#home', label: 'Home', icon: <FiHome /> },
+  { href: '#wedding', label: 'Wedding', icon: <FiHeart /> },
+  { href: '#location', label: 'Lokasi', icon: <FiMapPin /> },
+  { href: '#gallery', label: 'Gallery', icon: <FiImage /> },
+  { href: '#guestbook', label: 'Guestbook', icon: <FiMessageCircle /> },
 ];
 
 const BottomNav: React.FC = () => {
-    return (
-        <NavWrapper>
-            <NavInner>
-                {items.map((it) => (
-                    <NavItem key={it.href} href={it.href} aria-label={it.label}>
-                        <Icon>{it.icon}</Icon>
-                        <Label>{it.label}</Label>
-                    </NavItem>
-                ))}
-            </NavInner>
-        </NavWrapper>
-    );
+  const [activeHref, setActiveHref] = useState(items[0].href);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = items.map((item) => document.getElementById(item.href.substring(1)));
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      let currentActive = activeHref;
+
+      for (const section of sections) {
+        if (section && scrollPosition >= section.offsetTop) {
+          currentActive = `#${section.id}`;
+        }
+      }
+
+      setActiveHref(currentActive);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [activeHref]);
+
+  return (
+    <NavWrapper>
+      <NavInner>
+        {items.map((it) => (
+          <NavItem
+            key={it.href} href={it.href} aria-label={it.label}
+            className={activeHref === it.href ? 'active' : ''}
+          >
+            <Icon>{it.icon}</Icon>
+            <Label>{it.label}</Label>
+          </NavItem>
+        ))}
+      </NavInner>
+    </NavWrapper>
+  );
 };
 
 export default BottomNav;
@@ -66,7 +93,14 @@ const NavItem = styled.a`
   text-decoration: none;
   font-size: 12px;
   padding: 6px 8px;
+  border-radius: 8px;
   flex: 1 1 0;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &.active {
+    color: #800000;
+    background-color: rgba(128, 0, 0, 0.1);
+  }
 `;
 
 const Icon = styled.span`

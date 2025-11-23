@@ -108,7 +108,7 @@ function App() {
           <BalineseText>ᬒᬁᬰᬵᬦ᭄ᬢᬶᬄᬰᬵᬦ᭄ᬢᬶᬄᬰᬵᬦ᭄ᬢᬶᬄᬒᬁ</BalineseText>
         </SectionWrapper>
         <WavySectionWrapper id="location" showTopWave showBottomWave>
-          <Heading1>Lokasi Acara</Heading1>
+          <Heading1>Location</Heading1>
           <Location />
         </WavySectionWrapper>
         <SectionWrapper id="gallery">
@@ -296,7 +296,7 @@ const StyledContainer = styled.div`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) {
-    max-width: 30%;
+    max-width: 25%;
     min-width: 500px;
   }
 `;

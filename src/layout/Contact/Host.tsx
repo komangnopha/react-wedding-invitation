@@ -15,18 +15,23 @@ const Host = () => {
   return (
     <HostContainer>
       <Heading2>{greeting.message_couple}</Heading2>
-      <HostInfo img={imgGroom} person={groom} />
-      <Heading1>&</Heading1>
-      <HostInfo img={imgBride} person={bride} />
+      <HostInfo img={imgGroom} person={groom} animation="fade-right" />
+      <div data-aos="zoom-in"><Heading1>&</Heading1></div>
+      <HostInfo img={imgBride} person={bride} animation="fade-left" />
     </HostContainer>
   );
 };
 
 export default Host;
 
-const HostInfo = ({ img, person, marginBottom }: { img: string, person: BrideAndGroom, marginBottom?: number }) => {
+const HostInfo = ({
+  img,
+  person,
+  marginBottom,
+  animation,
+}: { img: string; person: BrideAndGroom; marginBottom?: number; animation?: string }) => {
   return (
-    <HostDetails style={{ marginBottom }}>
+    <HostDetails style={{ marginBottom }} data-aos={animation}>
       <ProfileFrame>
         <FrameImage src="/photo-frame.png" alt="Frame" />
         <Gallery
@@ -97,7 +102,6 @@ const HostContainer = styled.div`
 
 const HostDetails = styled.div`
   justify-content: center;
-  white-space: nowrap;
   display: flex;
   flex-direction: column;
   gap: 6px;

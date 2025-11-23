@@ -3,8 +3,9 @@ import images from '@/layout/Gallery/Images';
 import styled from '@emotion/styled';
 import { remoteConfig } from 'firebase';
 import { getValue } from 'firebase/remote-config';
+import { FiArrowDown } from 'react-icons/fi';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Main = () => {
   const val = getValue(remoteConfig, 'gung_hadi_army_wedding_data');
@@ -12,6 +13,12 @@ const Main = () => {
   const greeting = parsedData.greeting;
   const shuffledImages = Array.from(images.filter((image) => image.orientation == "portrait")).sort(() => 0.5 - Math.random());
   const mainImgSlides = shuffledImages.slice(0, 3);
+
+  const handleScrollToNext = () => {
+    const weddingSection = document.getElementById('wedding');
+    weddingSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <MainWrapper id="home">
       <Hero>
@@ -28,14 +35,17 @@ const Main = () => {
                   src={image.src[2]}
                   sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px" loading='lazy' />
                 <Overlay>
-                  <OverlayTitle>{greeting.title}</OverlayTitle>
+                  <OverlayTitle>The Wedding of</OverlayTitle>
+                  <OverlayTitle>{greeting.couple_name}</OverlayTitle>
                   <OverlaySubtitle>{new Date(greeting.eventDate).toLocaleDateString('id-ID', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
                   })}</OverlaySubtitle>
                   <CtaRow>
-                    <p>Scroll to see details</p>
+                    <ScrollButton onClick={handleScrollToNext}>
+                      <FiArrowDown />
+                    </ScrollButton>
                   </CtaRow>
                 </Overlay>
               </SlideWrapper>);
@@ -112,17 +122,30 @@ const CtaRow = styled.div`
   display: flex;
   gap: 12px;
   margin-top: 8px;
+  z-index: 3;
 
-  a {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    backdrop-filter: blur(6px);
-  }
   p {
     color: #fff;
+  }
+`;
+
+const ScrollButton = styled.button`
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 20px;
+  animation: bounce 2s infinite;
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
   }
 `;

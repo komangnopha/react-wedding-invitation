@@ -10,7 +10,9 @@ const GalleryWrap = () => {
 
   return (
     <ContentsWrap>
-      <PhotoGallery />
+      <div data-aos="fade-up">
+        <PhotoGallery />
+      </div>
       {/* <ImageMoreWrap isMoreView={isMoreView}>
         {!isMoreView && <WhiteGradientOverlay />}
         <PhotoGallery />
