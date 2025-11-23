@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "gung-hadi-army",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
