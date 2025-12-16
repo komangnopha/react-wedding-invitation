@@ -8,7 +8,7 @@ const Location = () => {
   // const parsedData = JSON.parse(val.asString());
   // const mapInfo = parsedData.mapInfo;
   return (
-    <LocationWrapper>
+    <LocationWrapper data-aos="fade-down">
       <Map />
       <MapButtons />
       {/* <Address /> */}
@@ -24,4 +24,5 @@ const LocationWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
 `;

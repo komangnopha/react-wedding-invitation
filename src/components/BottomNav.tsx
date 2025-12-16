@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
-import { FiHeart, FiHome, FiImage, FiMapPin, FiMessageCircle } from 'react-icons/fi';
+import { FiHeart, FiHome, FiImage, FiMessageCircle, FiSend } from 'react-icons/fi';
 
 const items = [
   { href: '#home', label: 'Home', icon: <FiHome /> },
   { href: '#wedding', label: 'Wedding', icon: <FiHeart /> },
-  { href: '#location', label: 'Lokasi', icon: <FiMapPin /> },
   { href: '#gallery', label: 'Gallery', icon: <FiImage /> },
+  { href: '#account', label: 'Amplop Digital', icon: <FiSend /> },
   { href: '#guestbook', label: 'Guestbook', icon: <FiMessageCircle /> },
 ];
 

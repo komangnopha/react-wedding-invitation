@@ -1,4 +1,5 @@
 import { Caption, Paragraph } from '@/components/Text.tsx';
+import Location from '@/layout/Location/Location.tsx';
 import styled from '@emotion/styled';
 import { remoteConfig } from 'firebase.ts';
 import { getValue } from 'firebase/remote-config';
@@ -17,6 +18,9 @@ const Invitation = () => {
       <div data-aos="fade-down">
         <CountdownEvent />
       </div>
+      {/* <div data-aos="fade-down"> */}
+      <Location />
+      {/* </div> */}
       {/* <Map />
       <MapButtons /> */}
       <Paragraph>{parsedData.greeting.message_regards}</Paragraph>

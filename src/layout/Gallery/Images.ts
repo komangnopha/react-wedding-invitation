@@ -1,5 +1,5 @@
 const imageModules = import.meta.glob(
-  '../../assets/images/*.{JPG,jpg,png,jpeg}',
+  '../../assets/images/gallery/*.{JPG,jpg,png,jpeg,heic}',
   {
     eager: true,
     query: 'w=300;600;1200&format=webp&imagetools&metadata',
@@ -21,10 +21,31 @@ function getImageOrientation(width: number, height: number): Orientation {
 const images = Object.entries(imageModules)
   .slice(0, 20) // <-- Set your desired limit here
   .map(([path, importedImage]) => {
-    // The metadata is the module itself when not using `import: 'default'`
-    const src = (importedImage as any).default;
-    const width = 768;
-    const height = 1150;
+    const mod = importedImage as any;
+    // default export is the processed image URL
+    const src = mod.default ?? mod.src ?? '';
+
+    // vite-imagetools exposes metadata when using the `&metadata` query.
+    // The structure can vary slightly between versions/configs, so try
+    // several common locations then fall back to sensible defaults.
+    const metadata = mod.metadata ?? mod.meta ?? mod;
+
+    const widthFromMeta =
+      metadata?.width ??
+      metadata?.originalWidth ??
+      metadata?.original?.width ??
+      metadata?.images?.[0]?.width ??
+      undefined;
+
+    const heightFromMeta =
+      metadata?.height ??
+      metadata?.originalHeight ??
+      metadata?.original?.height ??
+      metadata?.images?.[0]?.height ??
+      undefined;
+
+    const width = widthFromMeta ?? 768;
+    const height = heightFromMeta ?? 1150;
     const filename = path.split('/').pop()?.split('.')[0] ?? 'image';
 
     return {

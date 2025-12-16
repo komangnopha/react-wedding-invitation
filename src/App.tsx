@@ -6,7 +6,6 @@ import Footer from '@/layout/Footer/FooterSection.tsx';
 import GalleryWrap from '@/layout/Gallery/GalleryWrap.tsx';
 import Guestbook from '@/layout/Guestbook/Guestbook.tsx';
 import Invitation from '@/layout/Invitation/Invitation.tsx';
-import Location from '@/layout/Location/Location.tsx';
 import Main from '@/layout/Main/Main.tsx';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -19,6 +18,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { BounceLoader } from 'react-spinners';
 import Wrapper from './components/Wrapper';
+import Account from './layout/Account/Account';
 import Host from './layout/Contact/Host';
 
 
@@ -107,18 +107,17 @@ function App() {
           <Invitation />
           <BalineseText>ᬒᬁᬰᬵᬦ᭄ᬢᬶᬄᬰᬵᬦ᭄ᬢᬶᬄᬰᬵᬦ᭄ᬢᬶᬄᬒᬁ</BalineseText>
         </SectionWrapper>
-        <WavySectionWrapper id="location" showTopWave showBottomWave>
+        {/* <WavySectionWrapper id="location" showTopWave showBottomWave>
           <Heading1>Location</Heading1>
-          <Location />
-        </WavySectionWrapper>
-        <SectionWrapper id="gallery">
+        </WavySectionWrapper> */}
+        <WavySectionWrapper id="gallery" showTopWave showBottomWave>
           <Heading1>Gallery</Heading1>
           <GalleryWrap />
-        </SectionWrapper>
-        {/* <SectionWrapper id="account">
+        </WavySectionWrapper>
+        <SectionWrapper id="account">
           <Heading1>Amplop Digital</Heading1>
           <Account />
-        </SectionWrapper> */}
+        </SectionWrapper>
         <WavySectionWrapper id="guestbook" showTopWave>
           <Heading1>Guestbook</Heading1>
           <Guestbook />
