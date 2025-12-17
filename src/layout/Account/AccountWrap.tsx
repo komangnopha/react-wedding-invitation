@@ -77,9 +77,9 @@ const Info = styled.div`
   gap: 5px;
   margin: 5px 0;
 `;
-const Relation = styled.span`
-  color: #44484d;
-`;
+// const Relation = styled.span`
+//   color: #44484d;
+// `;
 const Name = styled.span`
   font-size: 1rem
 `;
