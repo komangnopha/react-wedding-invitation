@@ -7,7 +7,7 @@ interface IAccordionProps {
   children: ReactNode;
 }
 const Accordion = ({ title, children }: IAccordionProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -43,7 +43,7 @@ const AccordionHeader = styled.div<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #e6ece1;
+  background-color: #F4DEDE;
   padding: 0 15px;
   cursor: pointer;
   & > p {

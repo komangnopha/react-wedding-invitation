@@ -31,7 +31,7 @@ const AccountWrap = ({
   return (
     <Wrapper>
       <Info>
-        <Relation>a/n</Relation>
+        {/* <Relation>a/n</Relation> */}
         <Name>{name}</Name>
       </Info>
       <Details>

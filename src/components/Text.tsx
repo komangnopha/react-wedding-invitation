@@ -12,6 +12,7 @@ export const Heading2 = styled.p`
   font-size: 1rem;
   margin: 10px;
   white-space: pre-line;
+  text-align: center;
 `;
 
 export const PointTitle = styled.p`
@@ -26,6 +27,7 @@ export const Paragraph = styled.p`
   line-height: 1.4rem;
   line-height: 150%;
   white-space: pre-line;
+  text-align: center;
 `;
 
 export const Caption = styled.p<{ textAlign?: string, color?: string }>`

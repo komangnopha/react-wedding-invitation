@@ -11,7 +11,6 @@ const Main = () => {
   const val = getValue(remoteConfig, 'gung_hadi_army_wedding_data');
   const parsedData = JSON.parse(val.asString());
   const greeting = parsedData.greeting;
-  console.log('header =', headerImg);
   // const shuffledImages = Array.from(images.filter((image) => image.orientation == "portrait")).sort(() => 0.5 - Math.random());
   // const mainImgSlides = shuffledImages.slice(0, 3);
   const mainImgSlides = [headerImg]

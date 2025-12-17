@@ -9,7 +9,6 @@ const FooterSection = () => {
   const val = getValue(remoteConfig, 'gung_hadi_army_wedding_data');
   const parsedData = JSON.parse(val.asString());
   const couple_name = parsedData.greeting.couple_name;
-  console.log('footer =', footerImg);
   // const shuffledImages = Array.from(images.filter((image) => image.orientation == "portrait")).sort(() => 0.5 - Math.random());
   // const footerImgSlides = shuffledImages.slice(0, 3);
   const footerImgSlides = [footerImg];
@@ -55,18 +54,20 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   gap: 0;
   margin: 0 auto !important;
-  padding: 0 auto !important;
+  padding: 0 !important;
 
   .carousel .slide img {
+    width: 100%;
     height: 100vh;
     object-fit: cover;
+    object-position: center;
   }
 `;
 
 const SlideWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 
 const Overlay = styled.div`

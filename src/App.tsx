@@ -227,8 +227,8 @@ const CloseButton = styled.button`
 const FloatingMusicButton = styled.div<{ visible: boolean }>`
   display: ${({ visible }) => (visible ? 'none' : 'flex')};
   position: fixed;
-  bottom: 70px;
-  right: 10px;
+  bottom: -10px;
+  right: -5px;
   z-index: 999;
   width: 50px;
   height: 50px;
@@ -238,10 +238,6 @@ const FloatingMusicButton = styled.div<{ visible: boolean }>`
   // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   align-items: center;
   justify-content: center;
-
-  @media (min-width: 768px) {
-    bottom: 10px;
-  }
 `;
 
 
