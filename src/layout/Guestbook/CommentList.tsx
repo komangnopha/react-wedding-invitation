@@ -58,7 +58,7 @@ const MarqueeContent = styled.div<{ itemCount: number }>`
   width: fit-content; /* Added to ensure width is calculated from children */
   flex-direction: row;
   gap: 1rem;
-  animation: marquee-h 30s linear infinite;
+  animation: marquee-h 60s linear infinite;
 
   @keyframes marquee-h {
     0% {
